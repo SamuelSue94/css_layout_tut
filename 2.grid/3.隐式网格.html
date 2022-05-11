@@ -1,0 +1,57 @@
+<style>
+  .main {
+    width: 600px;
+    height: 600px;
+    background-color: skyblue;
+    display: grid;
+    /* 只有一行3列， 但是当子元素个数多的时候， 会隐式产生网格 */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    /* 默认产生隐式行 */
+    grid-auto-flow: row;
+    /* 控制隐式行的高度 */
+    grid-auto-rows: 150px;
+
+    /* 对应的可以控制隐式产生列,以及列高 */
+  }
+
+  .main div,
+  .main2 div {
+    box-sizing: border-box;
+    border: 1px solid #000;
+  }
+
+  .main2 {
+    width: 600px;
+    height: 600px;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-auto-rows: 150px;
+    /* dense主要配合子项的grid-column-start之类的使用， 无dense， 子项从指定位置依次往后排(位置以前的格子空着)， dense密集排列，会自动补前面的空位 */
+    grid-auto-flow: row dense;
+  }
+
+  .main2 div:nth-child(1) {
+    grid-column-start: 2;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </div>
+  <hr>
+  <div class="main2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </div>
+</body>

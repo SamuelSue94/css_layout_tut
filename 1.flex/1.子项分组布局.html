@@ -1,0 +1,37 @@
+<style>
+  .main {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: pink;
+    /* justify-content: space-between; */
+  }
+
+  .main div {
+    width: 80px;
+    height: 40px;
+    background-color: grey;
+    margin-right: 10px;
+  }
+
+  /* 使用margin-right来实现分组效果 */
+  .main div:nth-child(2) {
+    margin-right: auto;
+  }
+
+  .main div:nth-child(5) {
+    margin-right: auto;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+  </div>
+</body>

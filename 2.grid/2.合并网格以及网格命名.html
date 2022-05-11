@@ -1,0 +1,41 @@
+<style>
+  .main {
+    width: 600px;
+    height: 600px;
+    background-color: skyblue;
+    display: grid;
+    /*     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr); */
+    /* grid-template-areas:
+      "d1 d1 d2"
+      "d1 d1 d2"
+      "d3 d3 d3"; */
+
+    /* 简写 */
+    grid-template:
+      "d1 d1 d2"1fr "d1 d1 d2"1fr "d3 d3 d3"1fr / 1fr 1fr 1fr;
+  }
+
+  .main div:nth-of-type(1) {
+    grid-area: d1;
+    background-color: aqua;
+  }
+
+  .main div:nth-child(2) {
+    grid-area: d2;
+    background-color: yellow;
+  }
+
+  .main div:nth-child(3) {
+    grid-area: d3;
+    background-color: brown;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+</body>

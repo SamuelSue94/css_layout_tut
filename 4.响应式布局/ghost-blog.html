@@ -1,0 +1,412 @@
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/grid-system.css">
+<link rel="stylesheet" href="../iconfont/iconfont.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+  :root {
+    --article-width: 100%
+  }
+
+  body {
+    background-color: #ebebeb;
+  }
+
+  a {
+    color: #505050;
+  }
+
+  .head {
+    height: 190px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .head .head-logo {
+    width: 200px;
+  }
+
+  .nav {
+    border-bottom: 2px solid #e1e1e1;
+    border-top: 1px solid #ebebeb;
+    background-color: #fff;
+    padding: 0 15px;
+  }
+
+  .nav-bar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-bar i {
+    cursor: pointer;
+  }
+
+  .nav-list {
+    /* height: 0; */
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s ease;
+  }
+
+  .nav-list li {
+    height: 56px;
+    line-height: 56px;
+    position: relative;
+    text-indent: 21px;
+  }
+
+  .nav-list li.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #e67e22;
+    left: 0;
+    bottom: 0;
+  }
+
+  #nav-toggle {
+    display: none;
+  }
+
+  #nav-toggle:checked+.nav-list {
+    /* height: auto; */
+    /* auto值不支持transition，可以另辟蹊径通过max-height设置 */
+    max-height: 350px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .nav-bar {
+      display: none;
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 350px;
+    }
+
+    .nav-list li {
+      text-indent: 0;
+      margin: 0 15px;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    :root {
+      --article-width: 940px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    :root {
+      --article-width: 1140px;
+    }
+  }
+
+  .main {
+    padding: 0 15px;
+    width: var(--article-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .main .article {
+    margin-top: 35px;
+    background-color: #fff;
+    padding: 35px;
+    line-height: 1.5;
+  }
+
+  .article h2 {
+    font-size: 35px;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  .article div {
+    line-height: 30px;
+    text-align: center;
+    color: #959595;
+  }
+
+  .article p {
+    margin-top: 25px;
+    font-size: 18px;
+  }
+
+  .article button {
+    border: none;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    margin: 30px 0;
+  }
+
+  .article section {
+    border-top: 1px #ebebeb solid;
+    padding-top: 20px;
+  }
+
+  .article section i {
+    margin-right: 5px;
+  }
+
+  .main-aside {
+    background-color: #fff;
+    padding: 35px;
+    margin-top: 35px;
+  }
+
+  .main-aside h3 {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+  }
+
+  .main-aside h3::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 1px;
+    background-color: #e67e22;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+  }
+
+  .main-aside p,
+  .main-aside button {
+    margin-top: 30px;
+  }
+
+  .main-aside button {
+    border: none;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .main-aside div a {
+    display: inline-block;
+    border: 1px solid #ebebeb;
+    margin: 11px 7px 0 0;
+    padding: 10px 6px;
+  }
+
+  .main-aside div a:hover {
+    border: 1px solid #e67e22;
+  }
+
+  .footer {
+    margin-top: 30px;
+    background-color: #212121;
+    color: #fff;
+  }
+
+  .footer .footer-wrapper {
+    width: var(--article-width);
+    margin: 0 auto;
+  }
+
+  .footer .footer-item {
+    padding: 35px;
+  }
+
+  .footer-item h3 {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cecece;
+    position: relative;
+  }
+
+  .footer-item h3::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 1px;
+    background-color: #e67e22;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+  }
+
+  .footer-item div {
+    margin-top: 15px;
+  }
+
+  .footer-item div a {
+    display: inline-block;
+    color: #717072;
+    padding: 5px 10px;
+    font-weight: 450;
+  }
+
+  .footer-item div a:hover {
+    color: #e67e22
+  }
+</style>
+
+<body>
+  <div class="head">
+    <img class="head-logo" src="../img/ghost-logo.png" alt="logo">
+  </div>
+  <div class="nav">
+    <div class="nav-bar">
+      <label for="nav-toggle">
+        <i class="iconfont icon-zhedie"></i>
+      </label>
+    </div>
+    <input type="checkbox" id="nav-toggle">
+    <ul class="nav-list">
+      <li class="active"><a href="#">首页</a></li>
+      <li><a href="#">论坛</a></li>
+      <li><a href="#">快捷手册</a></li>
+      <li><a href="#">中文文档</a></li>
+      <li><a href="#">关于</a></li>
+    </ul>
+  </div>
+  <div class="main row">
+    <div class="col-lg-8 col-12 flex-column">
+      <div class="article">
+        <h2>全新的 Ghost 文档上线</h2>
+        <div>
+          <span>作者：王赛</span> • <span>2018年11月20日</span>
+        </div>
+        <p>我们的整个 Ghost 文档 已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。 新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥 Ghost
+          作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括 Ghost 安装和设置</p>
+        <button>阅读全文</button>
+        <section>
+          <i class="iconfont icon-wenjianjia"></i>
+          <a href="#">Android</a>，
+          <a href="#">客户端</a>
+        </section>
+      </div>
+      <div class="article">
+        <h2>全新的 Ghost 文档上线</h2>
+        <div>
+          <span>作者：王赛</span> • <span>2018年11月20日</span>
+        </div>
+        <p>我们的整个 Ghost 文档 已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。 新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥 Ghost
+          作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括 Ghost 安装和设置</p>
+        <button>阅读全文</button>
+        <section>
+          <i class="iconfont icon-wenjianjia"></i>
+          <a href="#">Android</a>，
+          <a href="#">客户端</a>
+        </section>
+      </div>
+      <div class="article">
+        <h2>全新的 Ghost 文档上线</h2>
+        <div>
+          <span>作者：王赛</span> • <span>2018年11月20日</span>
+        </div>
+        <p>我们的整个 Ghost 文档 已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。 新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥 Ghost
+          作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括 Ghost 安装和设置</p>
+        <button>阅读全文</button>
+        <section>
+          <i class="iconfont icon-wenjianjia"></i>
+          <a href="#">Android</a>，
+          <a href="#">客户端</a>
+        </section>
+      </div>
+      <div class="article">
+        <h2>全新的 Ghost 文档上线</h2>
+        <div>
+          <span>作者：王赛</span> • <span>2018年11月20日</span>
+        </div>
+        <p>我们的整个 Ghost 文档 已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。 新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥 Ghost
+          作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括 Ghost 安装和设置</p>
+        <button>阅读全文</button>
+        <section>
+          <i class="iconfont icon-wenjianjia"></i>
+          <a href="#">Android</a>，
+          <a href="#">客户端</a>
+        </section>
+      </div>
+    </div>
+    <div class="col-lg-4 col-12 flex-column">
+      <div class="main-aside">
+        <h3>声明</h3>
+        <p>Ghost中文版不再继续维护，请去官方下载</p>
+      </div>
+      <div class="main-aside">
+        <h3>下载</h3>
+        <button>Ghost最新版</button>
+      </div>
+      <div class="main-aside">
+        <h3>标签云</h3>
+        <div>
+          <a href="#">客户端</a>
+          <a href="#">Android</a>
+          <a href="#">App</a>
+          <a href="#">Jquery</a>
+          <a href="#">Ghost</a>
+          <a href="#">开源</a>
+          <a href="#">助手函数</a>
+          <a href="#">Javascript</a>
+          <a href="#">JS</a>
+          <a href="#">CSS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-wrapper row">
+      <div class="footer-item col-lg-4 flex-column">
+        <h3>友链</h3>
+        <div>
+          <a href="#">Bootstrap中文网</a>
+          <a href="#">React</a>
+          <a href="#">Vue</a>
+          <a href="#">Svelte</a>
+          <a href="#">Preact</a>
+          <a href="#">Babel</a>
+          <a href="#">Webpack</a>
+          <a href="#">Rollup.js</a>
+          <a href="#">Bootstrap中文网</a>
+          <a href="#">React</a>
+          <a href="#">Vue</a>
+          <a href="#">Svelte</a>
+          <a href="#">Preact</a>
+          <a href="#">Babel</a>
+          <a href="#">Webpack</a>
+          <a href="#">Rollup.js</a>
+        </div>
+      </div>
+      <div class="footer-item col-lg-4 flex-column">
+        <h3>标签云</h3>
+        <div>
+          <a href="#">客户端</a>
+          <a href="#">Android</a>
+          <a href="#">App</a>
+          <a href="#">Jquery</a>
+          <a href="#">Ghost</a>
+          <a href="#">开源</a>
+          <a href="#">助手函数</a>
+          <a href="#">Javascript</a>
+          <a href="#">JS</a>
+          <a href="#">CSS</a>
+        </div>
+      </div>
+      <div class="footer-item col-lg-4 flex-column">
+        <h3>合作伙伴</h3>
+        <div>
+          <a href="#">Tencent</a>
+          <a href="#">Alibaba</a>
+          <a href="#">Baidu</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>

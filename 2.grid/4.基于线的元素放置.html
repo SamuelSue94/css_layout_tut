@@ -1,0 +1,47 @@
+<style>
+  .main {
+    width: 600px;
+    height: 600px;
+    background-color: skyblue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    /* 可以给每条定位线取名字, 然后start-end以名字来划分 */
+    grid-template-rows: [row1] 1fr [row2] 1fr [row3] 1fr [row4];
+  }
+
+  .main div:nth-child(1) {
+    background-color: pink;
+    /* chrome 打开layout 里面查看grid */
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .main div:nth-child(2) {
+    background-color: yellow;
+    grid-row-start: 1;
+    /* span表示占几个单元格，已经不是表示起始位置了 */
+    grid-row-end: span 2;
+  }
+
+  .main div:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    /* 简写起始位置 */
+    grid-column: 3 / -1;
+    background-color: #fff;
+    justify-self: center;
+    align-self: center;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+</body>

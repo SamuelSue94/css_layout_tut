@@ -1,0 +1,40 @@
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    clear: both;
+    /* 容器将左侧栏的padding值留出 */
+    padding-left: 350px;
+  }
+
+  .left,
+  .right {
+    height: 800px;
+    float: left;
+  }
+
+  .left {
+    width: 350px;
+    background-color: aqua;
+    /* margin-right将后面的元素拉上来 */
+    margin-right: -100%;
+    /* float元素不能设置absolute, 可以使用relative，将位置移出去 */
+    position: relative;
+    left: -350px;
+  }
+
+  .right {
+    width: 100%;
+    background-color: gold;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
